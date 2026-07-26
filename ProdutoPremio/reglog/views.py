@@ -10,8 +10,11 @@ from django.contrib import messages
 
 def logar_usuario(request):
     if request.method == "GET":
-        form = LoginForms()
-        return render(request, "login/login.html", {"form": form})
+        if request.user.is_authenticated:
+            return redirect("/profile/myprofile")
+        else:
+            form = LoginForms()
+            return render(request, "login/login.html", {"form": form})
     elif request.method == "POST":
         form = LoginForms(request.POST)
         if form.is_valid():
@@ -36,8 +39,11 @@ def logar_usuario(request):
 
 def registrar_usuario(request): 
     if request.method == "GET":
-        form = RegisterForms()
-        return render(request, "register/register.html", {"form": form})
+        if request.user.is_authenticated:
+            return redirect("/profile/myprofile")
+        else:
+            form = RegisterForms()
+            return render(request, "register/register.html", {"form": form})
     elif request.method == "POST":
         form = RegisterForms(request.POST)
 

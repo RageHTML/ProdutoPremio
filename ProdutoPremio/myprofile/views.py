@@ -9,4 +9,5 @@ def carregar_profile(request):
         if not request.user.is_authenticated:
             return redirect("/account/register")
         else:
-            return render(request, "profile/profile.html",{})
+            username = request.user.get_username()
+            return render(request, "profile/profile.html",{'username': username})

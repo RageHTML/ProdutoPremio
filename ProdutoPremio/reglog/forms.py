@@ -5,9 +5,11 @@ from django.contrib.auth.models import User
 class RegisterForms(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'password',  ]
+        fields = ['username', 'first_name','last_name','email', 'password',  ]
         widgets = {
-            'username': forms.TextInput(attrs={'placeholder': 'Nome', 'minlength': 5, 'maxlength': 50, 'required': 'true', 'type': 'text'}),
+            'username': forms.TextInput(attrs={'placeholder': 'username', 'minlength': 5, 'maxlength': 50, 'required': 'true', 'type': 'text'}),
+            'first_name': forms.TextInput(attrs={'placeholder': 'Nome', 'minlength': 5, 'maxlength': 50, 'required': 'true', 'type': 'text'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Sobrenome', 'minlength': 5, 'maxlength': 50, 'required': 'true', 'type': 'text'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email', 'minlength': 10, 'maxlength': 254, 'required': 'true', 'type': 'email'}),
             'password': forms.PasswordInput(attrs={'placeholder': 'Senha', 'minlength': 8,'maxlength': 64, 'required': 'true', 'type': 'password'}),
         }

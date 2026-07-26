@@ -5,11 +5,12 @@
         <meta charset="UTF-8"> 
     </head>
     <body>
-        <h1>Ola sou uma pagina html</h1>
+        <h1>Bem vindo de volta</h1>
         <form method="POST" action="{% url 'login'%}">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="submit">
+            <a href="{% url 'register' %}">Crie uma conta</a>
         </form>
     </body>
 </html>
