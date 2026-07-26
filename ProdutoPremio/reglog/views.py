@@ -26,7 +26,7 @@ def logar_usuario(request):
 
                 if user is not None:
                     login(request, user)
-                    return redirect('/produtopremio/dashboard')
+                    return redirect('/profile/myprofile')
                 else:
                     form.add_error(None, "Email ou senha incorretos")
             except User.DoesNotExist:
