@@ -4,6 +4,12 @@
         <title>Profile</title>
     </head>
     <body>
+        <ul>
+            <form method="POST" action="{% url 'logout'%}">
+                {% csrf_token %}
+                <button type="submit">Sair</button>
+            </form>
+        </ul>
         <h1>Ola {{ username }} veja sua informacoes</h1>
         <p>Nome: {{ username }}</p>
     </body>

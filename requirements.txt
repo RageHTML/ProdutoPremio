@@ -1,0 +1,9 @@
+asgiref==3.11.1
+beautifulsoup4==4.15.0
+Django==6.0.7
+dotenv==0.9.9
+mysqlclient==2.2.8
+python-dotenv==1.2.2
+soupsieve==2.9.1
+sqlparse==0.5.5
+typing_extensions==4.16.0
