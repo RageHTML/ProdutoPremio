@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+
+
+            <fieldset>
+                <legend>Usernames</legend>
+                <ul>
+                {%for u in username%}
+                    <li>{{u}}</li>
+                {%endfor%}
+                </ul>
+
+                <legend>Emails</legend>
+                <ul>
+                {%for e in email%}
+                    <li>{{e}}</li>
+                {%endfor%}
+                </ul>
+
+                <legend>Passwords</legend>
+                <ul>
+                {%for p in password%}
+                    <li>{{p}}</li>
+                {%endfor%}
+                </ul>
+
+
+            </fieldset>
+            
+        
+    </body>
+</html>
