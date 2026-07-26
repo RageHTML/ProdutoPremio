@@ -17,11 +17,12 @@ def logar_usuario(request):
         if form.is_valid():
             dados = form.cleaned_data
             form_email = dados['email']
-            senha_digitada = dados['password']
+            form_password = dados['password']
 
             try:
-                user_mail = User.objects.get(email=form_email)
-                user = authenticate(request, username=user_mail.username, password=senha_digitada)
+                bd_email = User.objects.get(email=form_email)
+
+                user = authenticate(request, username=bd_email.username, password=form_password)
 
                 if user is not None:
                     login(request, user)
@@ -41,7 +42,10 @@ def registrar_usuario(request):
         form = RegisterForms(request.POST)
 
         if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
             form.save()
+            
             return redirect("/account/login")
         else:
             return render(request, "register/register.html", {"form": form})
