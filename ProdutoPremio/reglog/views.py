@@ -22,18 +22,7 @@ def logar_usuario(request):
             form_email = dados['email']
             form_password = dados['password']
 
-            try:
-                bd_email = User.objects.get(email=form_email)
-
-                user = authenticate(request, username=bd_email.username, password=form_password)
-
-                if user is not None:
-                    login(request, user)
-                    return redirect('/profile/myprofile')
-                else:
-                    form.add_error(None, "Email ou senha incorretos")
-            except User.DoesNotExist:
-                form.add_error(None, "Usuario nao encontrado")
+            
                 
         return render(request, "login/login.html", {"form": form})
 
